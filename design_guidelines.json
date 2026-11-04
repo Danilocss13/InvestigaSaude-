@@ -1,0 +1,289 @@
+{
+  "project_name": "InvestigaSaúde",
+  "project_subheadline": "Combate à desinformação em saúde por meio de investigação interativa e aprendizagem gamificada",
+  "locale": "pt-BR",
+  "theme_preference": "light",
+  "archetype": "ARCHETYPE 1: ORGANIC & EARTHY + SWISS HYBRID (Saúde, Ciência Aberta, Central Investigativa Acolhedora)",
+  "fonts": {
+    "heading": "'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', sans-serif",
+    "body": "'Inter Variable', 'Inter', sans-serif",
+    "mono": "'JetBrains Mono Variable', 'JetBrains Mono', monospace",
+    "imports": [
+      "@import \"@fontsource-variable/plus-jakarta-sans\";",
+      "@import \"@fontsource-variable/inter\";",
+      "@import \"@fontsource-variable/jetbrains-mono\";"
+    ]
+  },
+  "typography": {
+    "scale_px": {
+      "display": 48,
+      "h1": 40,
+      "h2": 32,
+      "h3": 24,
+      "body": 16,
+      "caption": 14
+    },
+    "tokens": {
+      "display_lg": "text-4xl sm:text-5xl font-black tracking-tight leading-[1.15]",
+      "headline_lg": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-tight",
+      "headline_sm": "text-xl sm:text-2xl font-bold tracking-tight leading-snug",
+      "title_md": "text-lg sm:text-xl font-semibold leading-snug",
+      "label_lg": "text-sm sm:text-base font-semibold",
+      "label_md": "text-xs sm:text-sm font-medium",
+      "label_sm_caps": "text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em]",
+      "body_base": "text-base leading-relaxed",
+      "body_muted": "text-sm sm:text-base leading-relaxed text-[#3e4948]"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": "#005a56",
+      "primary_container": "#0d746f",
+      "on_primary_container": "#a2f7f0",
+      "secondary": "#006b56",
+      "secondary_container": "#85f4d3",
+      "secondary_fixed": "#88f6d6",
+      "secondary_fixed_dim": "#6bdabb",
+      "tertiary": "#005678",
+      "tertiary_container": "#176f97",
+      "tertiary_fixed": "#c6e7ff",
+      "surface": "#f3faff",
+      "surface_container_lowest": "#ffffff",
+      "surface_container_low": "#e6f6ff",
+      "surface_container": "#def1fa",
+      "surface_container_high": "#d9ebf5",
+      "surface_container_highest": "#d3e5ef",
+      "on_surface": "#0d1e25",
+      "on_surface_variant": "#3e4948",
+      "outline": "#6f7978",
+      "outline_variant": "#bdc9c7",
+      "error": "#ba1a1a",
+      "error_container": "#ffdad6",
+      "on_error_container": "#93000a",
+      "verdict_false": "#ba1a1a",
+      "verdict_false_bg": "#ffdad6",
+      "verdict_insufficient": "#9a6700",
+      "verdict_insufficient_bg": "#fff0c2",
+      "verdict_context": "#b45309",
+      "verdict_context_bg": "#fef3c7",
+      "verdict_reliable": "#005a56",
+      "verdict_reliable_bg": "#85f4d3"
+    },
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#f3faff",
+        "on_bg": "#0d1e25",
+        "on_bg_muted": "#3e4948",
+        "roles": {
+          "link": "#005a56",
+          "error": "#ba1a1a",
+          "success": "#006b56",
+          "accent_highlight": "#176f97"
+        }
+      },
+      {
+        "name": "panel_white",
+        "kind": "solid",
+        "bg": "#ffffff",
+        "on_bg": "#0d1e25",
+        "on_bg_muted": "#3e4948",
+        "roles": {
+          "border": "#bdc9c7",
+          "tag_bg": "#e6f6ff",
+          "tag_text": "#005678"
+        }
+      },
+      {
+        "name": "panel_low",
+        "kind": "solid",
+        "bg": "#e6f6ff",
+        "on_bg": "#0d1e25",
+        "on_bg_muted": "#3e4948"
+      },
+      {
+        "name": "panel_container",
+        "kind": "solid",
+        "bg": "#def1fa",
+        "on_bg": "#0d1e25",
+        "on_bg_muted": "#3e4948"
+      },
+      {
+        "name": "dossier_card_dark",
+        "kind": "solid",
+        "bg": "#005a56",
+        "on_bg": "#ffffff",
+        "on_bg_muted": "#a2f7f0",
+        "roles": {
+          "accent_badge": "#88f6d6",
+          "badge_text": "#003734"
+        }
+      },
+      {
+        "name": "header_glass",
+        "kind": "glass",
+        "contrast_against": "#ffffff",
+        "guarantee": "backdrop-blur-xl bg-white/90 border-b border-[#bdc9c7]/40 shadow-xs",
+        "on_bg": "#0d1e25",
+        "on_bg_muted": "#3e4948",
+        "roles": {
+          "active_link": "#005a56"
+        }
+      },
+      {
+        "name": "demo_alert_pill",
+        "kind": "solid",
+        "bg": "#ffdad6",
+        "on_bg": "#93000a",
+        "on_bg_muted": "#93000a"
+      }
+    ],
+    "accent": "#005a56",
+    "on_accent": "#ffffff"
+  },
+  "entry_surfaces": {
+    "/": "split hero with Stitch approved layout — brand headline + CTA left, dossier preview card #104 right, evidence tags below",
+    "/investigacoes": "filter bar top, high-density investigation cases grid center, full archive drawer below",
+    "/investigacoes/:id": "investigative dossier view — viral claim card top, 3-tab evidence analysis center, verdict selector right, scientific sources footer",
+    "/central-educativa": "educational library banner top, thematic module cards grid, learning trails accordion with development notes",
+    "/guia-verificacao": "interactive 4-step checklist stepper with practical quick-check tests for WhatsApp audio and social media",
+    "/laboratorio": "interactive bench 'Fato ou Ruído?' simulator with claim analysis workspace, interactive clue inspector",
+    "/metodologia": "rigor framework grid with Fiocruz, MS/SUS, OMS, Cochrane standards and evaluation criteria",
+    "/sobre": "mission narrative, open science ethos, advisory transparency and SUS/UBS health disclaimer",
+    "/404": "investigative 'pista perdida' dossier screen with quick route recovery back to Central"
+  },
+  "textures_and_visual_enhancers": {
+    "investigative_grain": "CSS subtle grain texture overlay (pointer-events-none opacity-40) to evoke archival document feel without reducing readability",
+    "dotted_clue_grid": "bg-[radial-gradient(#005a56_1px,transparent_1px)] [background-size:24px_24px] opacity-15 in dossier headers and lab workspace",
+    "stamp_badges": "Border-dashed and uppercase tracking badges for status (CASO DISPONÍVEL, MISTÉRIO ATIVO, PROVA DIDÁTICA, CONTEÚDO DEMONSTRATIVO)",
+    "magnifier_glow": "Subtle ambient drop shadow with teal tint on hover: hover:shadow-[0_12px_32px_rgba(0,90,86,0.12)]",
+    "connected_clue_lines": "Subtle vertical and horizontal border connection accents with dots for multi-step clues"
+  },
+  "image_urls": {
+    "case_thumbnails": [
+      {
+        "id": "case_101",
+        "title": "O Mistério da Vitamina C em Megadoses",
+        "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuAwcLoVsNZ3FCsXPhxqIUn2dTp9YnPbvdUCiTxNumQcO2lMPwlR1p0NJN4Lnsmw2ewJV5mgY4W_Za1BxiWxkxH7dGEmzga03QaKFa1i9BKBVLMxHS3QVMjLUvGf6-8B-XWZbfR7tNxzPwPubyc78ngTT5uvi_5YvGUgxh3bkvc2_H8Ilrx34Zok8as3WbY5fjntGOMEVd9sUVzOkYL4yIRk_EG83-fpYrJ_HSf5Fhjn6W-vCNf1IUGnXw",
+        "category": "Imunidade e Doenças Respiratórias",
+        "difficulty": "Iniciante",
+        "time": "~5 minutos"
+      },
+      {
+        "id": "case_102",
+        "title": "A Promessa do Chá Milagroso em Jejum",
+        "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuDE6cgDGdVQu8KZNqLapZDR-SFxYQDb-SL2D5fLOSAr6EzRXfbeS7XBJNPuPw12p1GsCiaFtSRUHxTzUCtbX8kcPEM3OaZ_W3QfXONDefD8tlyX7VR54bVKWxS13ewSYdo2KkUkE2WxyIrEZBeKMy613Wjkq8-TRCmzVWIfF2rAw7869SqoClqaDQNeu4lxKgtvVHgawZaeQxUT5eXrmfgKR4q2RwDydaWAguKFcZAm0pns05o3w2rQfg",
+        "category": "Metabolismo e Fitoterapia",
+        "difficulty": "Intermediário",
+        "time": "~6 minutos"
+      },
+      {
+        "id": "case_103",
+        "title": "O Caso da Notícia Fora de Contexto",
+        "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCBpfnUh1NjoOUBn3LAxSsP98XLsAXpyGykvP1LYz1U-z0tkL5113jgQhMhFbCsgZScZ5Eehj301N2Nm0rof51CDgEkn4niH2Pcfs6Wg0u43ELV2D3xjmVAIf7tzpoNSlpVAdw-lcFpbuciCZwldc5tkka3bLdBC18RBz4124Q24ZC9htoKj9fnsTQiXRo__WKUgWqOhbDXWruKJsPeQi-f8kpMqVGS0czA4igxuIipP7WCm9y-npAmgg",
+        "category": "Vacinação e Saúde Pública",
+        "difficulty": "Avançado",
+        "time": "~7 minutos"
+      }
+    ]
+  },
+  "component_structure": {
+    "header": {
+      "path": "frontend/src/components/Navbar.tsx",
+      "specs": "Sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#bdc9c7]/40 with brand mark 'InvestigaSaúde' + subtitle 'Combate à desinformação em saúde', 7 primary routes in desktop nav (Início, Central de Investigações, Central Educativa, Guia de Verificação, Laboratório, Metodologia, Sobre), mobile Sheet drawer, quick button to 'Investigar Caso'."
+    },
+    "footer": {
+      "path": "frontend/src/components/Footer.tsx",
+      "specs": "Rich academic/scientific footer with SUS/UBS disclaimer banner, partner institutions badges (MS, Fiocruz, OMS, Cochrane), open science licensing notes, and quick navigation index."
+    },
+    "demo_badge": {
+      "path": "frontend/src/components/DemoDisclaimerBanner.tsx",
+      "specs": "Subtle top or inline banner reminding students and users: 'Ambiente Educativo e Demonstrativo • Sem necessidade de cadastro • Dados pedagógicos baseados em evidências científicas'."
+    },
+    "case_card": {
+      "path": "frontend/src/components/CaseCard.tsx",
+      "specs": "Stitch-faithful card featuring difficulty badge, category label, thumbnail image, headline title, teaser question, 3 cataloged clues with icons, time estimate, and 'Assumir Caso' interactive CTA button with hover lift."
+    },
+    "clue_inspector": {
+      "path": "frontend/src/components/ClueInspector.tsx",
+      "specs": "Interactive clue dossier card that reveals evidence analysis, source credibility check, and scientific consensus comparison."
+    },
+    "verdict_quiz": {
+      "path": "frontend/src/components/VerdictQuiz.tsx",
+      "specs": "Interactive verdict selection (Falso, Sem Evidência Suficiente, Fora de Contexto, Confiável) with instant pedagogical feedback and explanation."
+    }
+  },
+  "navigation_routes": [
+    {
+      "path": "/",
+      "name": "Início",
+      "component": "frontend/src/pages/Home.tsx",
+      "description": "Faithful reproduction of Google Stitch approved layout with live link routing"
+    },
+    {
+      "path": "/investigacoes",
+      "name": "Central de Investigações",
+      "component": "frontend/src/pages/CentralInvestigacoes.tsx",
+      "description": "Interactive case catalog with filters (difficulty, theme, status) and 'Arquivo de Investigações'"
+    },
+    {
+      "path": "/investigacoes/:id",
+      "name": "Detalhes do Caso",
+      "component": "frontend/src/pages/CaseDetail.tsx",
+      "description": "Interactive investigative dossier with viral message, clue analysis, interactive verdict solver, and scientific literature references"
+    },
+    {
+      "path": "/central-educativa",
+      "name": "Central Educativa",
+      "component": "frontend/src/pages/CentralEducativa.tsx",
+      "description": "Thematic educational library on immunology, vaccines, herbal medicine, with 'Em Desenvolvimento' roadmap modules"
+    },
+    {
+      "path": "/guia-verificacao",
+      "name": "Guia de Verificação",
+      "component": "frontend/src/pages/GuiaVerificacao.tsx",
+      "description": "Interactive 4-step checklist for verifying WhatsApp audio, emotional triggers, and unverified doctors"
+    },
+    {
+      "path": "/laboratorio",
+      "name": "Laboratório Interativo",
+      "component": "frontend/src/pages/Laboratorio.tsx",
+      "description": "Interactive 'Fato ou Ruído?' bench workspace with claim testing simulator"
+    },
+    {
+      "path": "/metodologia",
+      "name": "Metodologia e Fontes",
+      "component": "frontend/src/pages/Metodologia.tsx",
+      "description": "Scientific criteria, peer-review standards, evidence hierarchy, and verified database links"
+    },
+    {
+      "path": "/sobre",
+      "name": "Sobre o Projeto",
+      "component": "frontend/src/pages/Sobre.tsx",
+      "description": "Project goals, open science commitment, non-commercial education ethos, and team disclosure"
+    }
+  ],
+  "motion": {
+    "hover_lift": "transition-transform duration-200 ease-out hover:-translate-y-1",
+    "card_transition": "transition-all duration-300 ease-in-out",
+    "stagger_fade": "motion.div with opacity 0 -> 1 and translateY(12px) -> 0",
+    "badge_pulse": "subtle pulse on active investigation alert"
+  },
+  "accessibility": {
+    "target_contrast": "WCAG AA (4.5:1 for body and caption, 3:1 for large display)",
+    "keyboard_navigation": "All cards, tabs, and filter pills fully focusable with visible focus-visible:ring-2 focus-visible:ring-[#005a56]",
+    "reduced_motion": "Respects prefers-reduced-motion in all motion/react animations",
+    "aria_roles": "Role definitions for dialogs, tabs, progress bars, and alerts",
+    "test_ids": "data-testid attributes added to all interactive controls and navigation links"
+  },
+  "instructions_to_main_agent": [
+    "Preserve strictly the visual design, hierarchy, card styling, and color tokens from the approved Google Stitch reference HTML.",
+    "Implement the 8 real routes using react-router-dom in App.tsx (/, /investigacoes, /investigacoes/:id, /central-educativa, /guia-verificacao, /laboratorio, /metodologia, /sobre, and * for 404).",
+    "Centralize rich structured mock data for 8+ investigative cases (with complete dossiers, viral claims, 3 pistas with icons, scientific consensus, verdict explanations, and SUS/OMS references) in a dedicated data file like src/data/investigations.ts.",
+    "On inner pages that are in development (like certain advanced lab modules or future trilhas), maintain visual polish with themed 'Módulo em Expansão / Prova Didática' cards that explain the upcoming scientific topics without feeling broken or empty.",
+    "Support both Material Symbols (via class 'material-symbols-outlined' or Lucide React equivalent icons) ensuring visual consistency across all pages.",
+    "Include the demonstrative educational disclaimer clearly on case details and footer without obstructing the educational flow.",
+    "Ensure all interactive elements have data-testid attributes for testing (e.g. data-testid='nav-link-investigacoes', data-testid='case-card-101', data-testid='btn-assume-case-101', data-testid='verdict-submit-button')."
+  ]
+}
