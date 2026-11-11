@@ -31,8 +31,46 @@ Every backend route lives under `/api` (the backend mounts one
 (`frontend/vite.config.ts`) proxies `/api/*` to `http://localhost:8001`. So
 frontend code always calls a **relative** path — `apiGet("/status")` →
 `/api/status` — and never an absolute backend URL. The same code works in dev
-(via the Vite proxy) and in production (once both are served behind a single
-origin).
+(via the Vite proxy). For a separate production backend, set the frontend build
+variable `VITE_API_BASE_URL` to its public API URL, including `/api`.
+
+## Demonstração: frontend no GitHub Pages e backend no seu PC
+
+O workflow `.github/workflows/deploy-pages.yml` publica somente o frontend no
+GitHub Pages a cada push para `main`. O backend permanece no seu computador e
+é exposto à internet por um túnel HTTPS temporário. Isso é adequado para uma
+demonstração, não para produção: o PC e o túnel precisam ficar ligados, e o
+endereço de um Quick Tunnel do Cloudflare muda quando ele é reiniciado.
+
+1. No GitHub, abra **Settings → Pages** e selecione **GitHub Actions** como
+   origem da publicação.
+2. Em **Settings → Secrets and variables → Actions → Variables**, crie a
+   variável `VITE_API_BASE_URL`. Para o valor, use a URL HTTPS do túnel seguida
+   de `/api`, por exemplo `https://exemplo.trycloudflare.com/api`. O frontend
+   usa essa URL publicamente; não coloque chaves ou senhas nela.
+3. Crie `backend/.env` localmente com `MONGO_URL` e `DB_NAME` válidos. O
+   MongoDB precisa estar acessível; opcionalmente configure `DEEPL_API_KEY`.
+   Não publique esse arquivo. Configure também `CORS_ORIGINS` com a origem do
+   GitHub Pages e a origem local para desenvolvimento, separadas por vírgula.
+   Para este repositório, a origem do Pages é
+   `https://jaovitimkk.github.io` (sem `/InvestigaSaude` no final).
+4. Em um terminal PowerShell, na pasta `backend`, inicie o servidor:
+
+   ```powershell
+   ..\.venv\Scripts\python.exe -m uvicorn server:app --host 0.0.0.0 --port 8001
+   ```
+
+5. Em outro terminal, inicie um Cloudflare Quick Tunnel para a porta `8001`
+   com `cloudflared tunnel --url http://localhost:8001`. Copie a URL HTTPS
+   `trycloudflare.com` gerada e atualize `VITE_API_BASE_URL` no GitHub com essa
+   URL mais `/api`.
+6. No GitHub, abra **Actions**, execute novamente **Deploy frontend to GitHub
+   Pages** (ou faça um push). Quando terminar, acesse
+   `https://jaovitimkk.github.io/InvestigaSaude/`.
+
+Ao reiniciar o túnel, atualize a variável do GitHub e publique o frontend de
+novo. Mantenha o backend e o túnel ativos durante a apresentação. Não exponha a
+porta `8001` diretamente no roteador nem compartilhe o arquivo `.env`.
 
 ## Backend
 
@@ -69,8 +107,20 @@ FastAPI, async throughout. `python` is the app venv interpreter
 - **Ids**: documents use a string `id` (`uuid4`) field, not Mongo's `ObjectId`
   — `ObjectId` is not JSON-serializable and leaks into response bodies. Keep the
   `uuid4` default-factory pattern from `StatusCheck`.
-- **Config**: `backend/.env` — `MONGO_URL` (connection string), `DB_NAME`
-  (database name), `CORS_ORIGINS`. `server.py` loads it with `python-dotenv`
+- **Config**: `backend/.env` for local development — `MONGO_URL` (connection
+  string), `DB_NAME`, `CORS_ORIGINS`, and optionally `DEEPL_API_KEY` for the
+  on-demand English-to-Brazilian-Portuguese abstract translation. In a hosted
+  deployment, set `DEEPL_API_KEY` in the backend service's environment/secrets
+  and restart that service; a local `.env` does not configure a deployed backend.
+  Keep this key only in the backend environment; it is never sent to the browser. The
+  translation endpoint defaults to DeepL Free at
+  `https://api-free.deepl.com/v2/translate`; set `DEEPL_API_URL` to the DeepL
+  Pro endpoint if the deployment uses a Pro key. Without a configured key,
+  search still works and translation reports that it is unavailable. Translation
+  requests accept up to 10 abstracts per batch, with a limit of 15,000 characters
+  per abstract and 100,000 UTF-8 bytes per batch. Batches are limited to 10 per
+  client IP per minute.
+  `server.py` loads config with `python-dotenv`
   above its local imports, and `lib/db.py` self-loads it so standalone scripts
   inherit it too. The pod runs `mongod` locally, so `MONGO_URL` points at
   `localhost`. Add new secrets/config here; read them with `os.environ`.

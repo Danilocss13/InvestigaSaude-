@@ -8,6 +8,8 @@
 node_modules/
 /node_modules
 /.env
+# Environment files in nested application directories (e.g. backend/.env).
+**/.env
 .env.*
 !.env.example
 .pnp

@@ -166,7 +166,8 @@ export const EDU_MODULES: LearningModule[] = [
   { id: "vacinas", icon: "vaccines", title: "Vacinas", description: "Como vacinas são desenvolvidas, testadas e monitoradas após a aprovação." },
   { id: "medicamentos", icon: "medication", title: "Medicamentos", description: "Registro, bula, automedicação e a importância de seguir o tratamento prescrito." },
   { id: "fitoterapicos", icon: "eco", title: "Plantas e Fitoterápicos", description: "O que diferencia um chá caseiro de um fitoterápico regularizado." },
-  { id: "estudos", icon: "lab_research", title: "Como ler um estudo", description: "Tipos de estudo, tamanho de amostra, limitações e o que significa \"revisão por pares\"." },
+  { id: "estudos", icon: "lab_research", title: "Como ler um estudo", description: "Aprenda a interpretar métodos, resultados, limitações e conclusões sem ir além do que os dados permitem." },
+  { id: "inteligencia-artificial", icon: "smart_toy", title: "Inteligência Artificial e Saúde", description: "Verifique imagens, vídeos, áudios e textos de saúde, sem depender de detectores como prova definitiva." },
   { id: "mecanismos", icon: "genetics", title: "Mecanismos Biológicos", description: "Conceitos fundamentais de biologia que ajudam a avaliar promessas de saúde." },
 ];
 
